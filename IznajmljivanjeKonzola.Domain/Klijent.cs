@@ -7,6 +7,8 @@ namespace IznajmljivanjeKonzola.Domain
         public string Prezime { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string Telefon { get; set; } = null!;
+        public string KorisnickoIme { get; set; } = null!;
+        public decimal Kredit { get; set; } = 0;
         public string LozinkaHash { get; set; } = null!;   // za SK2, SK4
         public int MestoId { get; set; }
         public Mesto Mesto { get; set; } = null!;

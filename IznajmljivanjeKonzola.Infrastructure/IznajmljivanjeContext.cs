@@ -26,6 +26,8 @@ namespace IznajmljivanjeKonzola.Infrastructure
             {
                 e.ToTable("Klijenti");
                 e.HasIndex(k => k.Email).IsUnique();
+                e.HasIndex(k => k.KorisnickoIme).IsUnique();
+                e.Property(k => k.Kredit).HasColumnType("decimal(10,2)");
                 e.HasOne(k => k.Mesto)
                  .WithMany(m => m.Klijenti)
                  .HasForeignKey(k => k.MestoId)
