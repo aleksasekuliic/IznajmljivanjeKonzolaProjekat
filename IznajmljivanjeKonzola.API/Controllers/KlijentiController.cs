@@ -72,8 +72,8 @@ namespace IznajmljivanjeKonzola.API.Controllers
         [Authorize(Roles = Uloge.Radnik)]
         public IActionResult DodajKredit(int id, [FromBody] DodajKreditDto dto)
         {
-            if (dto.Iznos <= 0)
-                return BadRequest("Iznos mora biti pozitivan.");
+            if (dto.Iznos == 0)
+                return BadRequest("Iznos ne sme biti nula.");
 
             var k = _uow.Klijenti.GetById(id);
             if (k is null) return NotFound();

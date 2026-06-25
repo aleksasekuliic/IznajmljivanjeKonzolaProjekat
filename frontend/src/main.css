@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Tema — Apple-styled dizajn tokeni
+   Boje i fontovi su definisani ovde (i u tailwind.config.js).
+   ============================================================ */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    'Segoe UI', Roboto, sans-serif;
+
+  /* Tekst */
+  --color-ink: #1d1d1f;
+  --color-ink-soft: #6e6e73;
+  --color-ink-faint: #86868b;
+
+  /* Akcenat (system blue) */
+  --color-accent: #0071e3;
+  --color-accent-hover: #0077ed;
+
+  /* Površine */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f5f7;
+  --color-surface-sunken: #fbfbfd;
+  --color-line: #d2d2d7;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background-color: var(--color-surface-muted);
+    letter-spacing: -0.011em;
+  }
+
+  /* Suptilan, Apple-ish scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+    background-clip: content-box;
+  }
+
+  /* Fokus prsten samo za tastaturu */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--tw-shadow, 0 0 0 4px rgba(0, 113, 227, 0.25));
+  }
+}
+
+@layer components {
+  /* Frosted glass traka — Apple navbar osećaj */
+  .glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+  }
+}

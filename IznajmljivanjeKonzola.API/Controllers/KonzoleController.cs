@@ -92,7 +92,6 @@ namespace IznajmljivanjeKonzola.API.Controllers
             return NoContent();
         }
 
-        // SK9 - ObrisiKonzolu
         [HttpDelete("{id}")]
         [Authorize(Roles = Uloge.Radnik)]
         public IActionResult Obrisi(int id)
