@@ -1,9 +1,12 @@
 using IznajmljivanjeKonzola.Domain;
+using IznajmljivanjeKonzola.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace IznajmljivanjeKonzola.Infrastructure
 {
-    public class IznajmljivanjeContext : DbContext
+    public class IznajmljivanjeContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
     {
         public IznajmljivanjeContext(DbContextOptions<IznajmljivanjeContext> options) : base(options)
         {
@@ -21,6 +24,8 @@ namespace IznajmljivanjeKonzola.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            base.OnModelCreating(mb);
+
             mb.Entity<Mesto>().ToTable("Mesta");
             mb.Entity<Klijent>(e =>
             {

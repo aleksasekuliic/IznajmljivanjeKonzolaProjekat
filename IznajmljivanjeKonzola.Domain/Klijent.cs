@@ -9,7 +9,6 @@ namespace IznajmljivanjeKonzola.Domain
         public string Telefon { get; set; } = null!;
         public string KorisnickoIme { get; set; } = null!;
         public decimal Kredit { get; set; } = 0;
-        public string LozinkaHash { get; set; } = null!;   // za SK2, SK4
         public int MestoId { get; set; }
         public Mesto Mesto { get; set; } = null!;
         public ICollection<Iznajmljivanje> Iznajmljivanja { get; set; } = new List<Iznajmljivanje>();
